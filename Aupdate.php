@@ -4,9 +4,9 @@ include("DBInfo.php");
 $selectf = new Student;
 
 // sanitization (w3schools)
-$isAllOk = trim($_POST["unameu"]) && strip($_POST["passu"]);
+$isAllOk = isset($_POST["unameu"]) && !empty($_POST["unameu"]) && isset($_POST["passu"]) && !empty($_POST["passu"]);
 
-if ($isAllOk) {
+if ($isAllOk==true) {
 	$uname = $_POST['unameu'];
 	$pass = $_POST['passu'];
 	print($selectf->updateValue($uname,$pass,$_SESSION['id']));
