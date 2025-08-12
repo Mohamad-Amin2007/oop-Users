@@ -1,0 +1,8 @@
+body{
+    direction: rtl;
+}
+.main{
+    font-family: tahoma;
+    font-size: 20pt;
+    color: rgb(49, 45, 255);
+}

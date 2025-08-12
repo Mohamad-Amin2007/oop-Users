@@ -1,9 +1,12 @@
+<?php
+//include("header.php");
+?>
 <table width="100%" height="100px" border="1px">
 	<tr>
 		<td>
 			<?php
 			if(!empty($_POST['uname'])&& !empty($_POST['pass'])){
-			include("DBinfo.php");
+			include("DBInfo.php");
 			$uname = $_POST['uname'];
 			$pass = $_POST['pass'];
 			$user1 = new Student;

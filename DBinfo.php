@@ -1,6 +1,6 @@
 <?php
 session_start();
-class DBinfo{
+class DBInfo{
 	static public $sql;
     static function connect(){
        self::$sql=mysqli_connect("localhost","root","","testtoday");
@@ -19,9 +19,10 @@ class Student {
 	public function setPass ($pass){
 		return $this->password = $pass;
 	}
+	// statement binding
 	public function insertValue (){
 		$query="INSERT INTO `users` (`username`, `password`) VALUES ('$this->username', '$this->password')";
-		$result = mysqli_query(DBinfo::connect(),$query);
+		$result = mysqli_query(DBInfo::connect(),$query);
 		if($result == true)
 		{
 			return("انجام شد");
@@ -33,7 +34,7 @@ class Student {
 	}
 	public function deleteValue ($unamekey){
 		$query_delete = "DELETE FROM `users` WHERE `username`='$unamekey'";
-		$result_delete = mysqli_query(DBinfo::connect(),$query_delete);
+		$result_delete = mysqli_query(DBInfo::connect(),$query_delete);
 		if($result_delete == true)
 		{
 			return("انجام شد");
@@ -45,12 +46,12 @@ class Student {
 	}
 	public function selectValue (){
 		$query_selall = "SELECT * FROM `users`";
-		$result_selall = mysqli_query(DBinfo::connect(),$query_selall);
+		$result_selall = mysqli_query(DBInfo::connect(),$query_selall);
 		while($row = mysqli_fetch_array($result_selall)){
 			echo("<a href='Delete.php?username=".$row['username']."'>حذف کاربر</a>");
 			echo(" - ");
-			echo("<a href='Update.php?username=".$row['username']."'>تغییراطلاعات کاربر</a>");
-			echo(" ");
+			echo("<a href='Update.php?username=".$row['username']."'>ویرایش/</a>");
+			echo("   ");
 			echo($row['username']);
 			echo(" ");
 			echo($row['password']);
@@ -59,13 +60,13 @@ class Student {
 	}
 	public function selectValueU($id){
 		$query_selu = "SELECT * FROM `users` WHERE `username` = '$id'";
-		$result_selu = mysqli_query(DBinfo::connect(),$query_selu);
+		$result_selu = mysqli_query(DBInfo::connect(),$query_selu);
 		return mysqli_fetch_array($result_selu);
 		
 	}
 	public function updateValue($unameu,$passu,$id){
 		$query_update = "UPDATE `users` SET `username`='$unameu',`password`='$passu' WHERE `username`='$id'";
-		$result_update = mysqli_query(DBinfo::connect(),$query_update);
+		$result_update = mysqli_query(DBInfo::connect(),$query_update);
 		if($result_update == true){
 			return("انجام شد");
 		}

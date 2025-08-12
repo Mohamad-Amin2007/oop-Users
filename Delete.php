@@ -1,6 +1,6 @@
 <?php
-include("DBinfo.php");
-
+include("DBInfo.php");
+//include("header.php");
 if(isset($_GET['username']))
 {
 	$unameinfo = $_GET['username'];

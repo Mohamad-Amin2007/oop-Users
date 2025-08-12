@@ -1,5 +1,6 @@
 <?php
-include("DBinfo.php");
+//include("header.php");
+include("DBInfo.php");
 $update1 = new Student;
 if(!empty($_GET['username'])){
 	$id = $_GET['username'];
